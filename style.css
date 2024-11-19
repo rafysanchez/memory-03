@@ -1,0 +1,127 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --card-color: #1a1a1a;
+  --text-color: #2c3e50;
+  --success-color: #2ecc71;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background: beige;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:not(.flipped):not(.matched) {
+  background: #1a1a1a;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+  background: beige;
+}
+
+.card.matched {
+  background: beige;
+  cursor: default;
+  animation: pulse 1s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.reset-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.reset-btn:hover {
+  transform: scale(1.05);
+  background: #2980b9;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .game-board {
+    gap: 0.5rem;
+  }
+  
+  .card {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+}
